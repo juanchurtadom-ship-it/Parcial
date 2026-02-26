@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Calculadora de Cotización de Envío</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Calculadora de Cotización de Envío</h1>
+
+    <form id="quoteForm" novalidate>
+      <div class="field">
+        <label for="name">Nombre del cliente *</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="field">
+        <label for="weight">Peso del paquete (kg) *</label>
+        <input type="number" id="weight" name="weight" step="0.01" min="0.01" required>
+      </div>
+
+      <div class="field">
+        <label for="distance">Distancia (km) *</label>
+        <input type="number" id="distance" name="distance" step="1" min="1" required>
+      </div>
+
+      <div class="field">
+        <label for="code">Código de descuento (opcional)</label>
+        <input type="text" id="code" name="code" placeholder="WEB10 o WEB20">
+      </div>
+
+      <div class="actions">
+        <button type="submit" id="calculateBtn">Calcular</button>
+      </div>
+
+      <div id="messages" aria-live="polite"></div>
+    </form>
+
+    <section id="result" class="result" hidden>
+      <h2>Resultado</h2>
+      <ul>
+        <li><strong>Nombre:</strong> <span id="rName"></span></li>
+        <li><strong>Costo por peso:</strong> $<span id="rPeso"></span></li>
+        <li><strong>Costo por distancia:</strong> $<span id="rDist"></span></li>
+        <li><strong>Subtotal:</strong> $<span id="rSubtotal"></span></li>
+        <li><strong>Descuento aplicado:</strong> <span id="rDescuento"></span></li>
+        <li><strong>Impuesto (8%):</strong> $<span id="rImpuesto"></span></li>
+        <li><strong>Total final:</strong> $<span id="rTotal"></span></li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
